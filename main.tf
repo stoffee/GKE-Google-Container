@@ -1,3 +1,21 @@
+provider "google" {
+  region  = "${var.gcp_region}"
+  credentials = "${var.gcp_credentials}"
+  project = "${var.gcp_project_id}"
+}
+
+variable "gcp_project_id" {
+  description = "The name of the GCP Project where all resources will be launched."
+}
+
+variable "gcp_region" {
+  description = "The region in which all GCP resources will be launched."
+}
+
+variable "gcp_credentials" {
+  description = "The credentials for GCP."
+}
+
 resource "google_container_cluster" "primary" {
   name     = "my-gke-cluster"
   location = "us-west2"
